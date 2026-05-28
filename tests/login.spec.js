@@ -8,5 +8,5 @@ test("Login using placeholder locator & assert the title", async ({page}) => {
         await page.getByText('Login').click()
         await expect(page).toHaveURL(/\/inventory\.html/)
         await expect(page.getByText('Products')).toHaveText('Products')
-})
+})     
 
