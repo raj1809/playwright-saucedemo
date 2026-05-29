@@ -14,7 +14,7 @@ test('Locators using getByLabel or getByTestId', async ({page}) =>{
     await page.getByTestId('username').fill('standard_user')
     await page.getByTestId('password').fill('secret_sauce')
     await page.getByTestId('login-button').click()
-    const header = await page.getByText('Products')
+    const header =  page.getByText('Products')
     await expect(header).toBeVisible()
     const headerText = await header.textContent()
     console.log(headerText);

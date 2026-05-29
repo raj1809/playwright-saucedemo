@@ -1,3 +1,5 @@
 # playwright-saucedemo
 Automation Journey
-Day 1: Setup complete
+Day 0: Setup complete
+Day 1: Done
+Day 2: Locators — getByPlaceholder, getByLabel, getByTestId
