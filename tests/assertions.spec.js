@@ -11,7 +11,7 @@ test("Assertion tests", async ({ page }) => {
   await expect(page).toHaveURL(/\/inventory\.html/);
   await expect(page.locator("div.inventory_item_name")).toHaveCount(6);
   await expect(
-    await page.getByTestId("add-to-cart-sauce-labs-backpack"),
+     page.getByTestId("add-to-cart-sauce-labs-backpack"),
   ).toBeEnabled();
   await expect(page.locator("span.shopping_cart_badge")).toBeHidden();
 });
