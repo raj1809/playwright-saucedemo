@@ -20,10 +20,11 @@ test('Login, click the cart icon, use locator.waitForstate: visible on the cart 
 
       const cartLink = page.getByTestId('shopping-cart-link')
       await cartLink.click()
-        await cartLink.waitFor({ state: 'visible' })
-        await expect(cartLink).toBeVisible()
-
-
+    //await cartLink.waitFor({ state: 'visible' })
+    const cartHeader = page.getByTestId('title')
+    await cartHeader.waitFor( { state : 'visible'})
+    await expect(cartHeader).toBeVisible()
+    await expect(cartHeader).toHaveText('Your Cart')
 })
 
 test('Login, add a product to cart, and wait for the cart badge to appear using waitFor', async ({page}) => {
@@ -37,6 +38,7 @@ test('Login, add a product to cart, and wait for the cart badge to appear using 
 
       const badge = page.getByTestId('shopping-cart-badge')
       await badge.waitFor({ state: 'visible' });
+      await expect(badge).toHaveText('1')
 
 })
 
