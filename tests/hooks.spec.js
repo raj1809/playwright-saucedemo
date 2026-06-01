@@ -14,12 +14,12 @@ test.describe('Inventory tests', () => {
         console.log('Test finished')
       })
 
-        test('Assert inventory has 6 products', async ({ page }) => {
+        test('Assert that inventory has 6 products', async ({ page }) => {
             const inventory = page.locator('[data-test="inventory-item"]')            
             await expect(inventory).toHaveCount(6)
         })
 
-        test('Add a product to cart, assert badge shows 1', async ({ page }) => {
+        test('Add a product to cart, assert that the badge shows 1', async ({ page }) => {
                 await page.getByTestId('add-to-cart-sauce-labs-backpack').click()
                 await expect(page.getByTestId('shopping-cart-badge')).toHaveText('1')
         })
