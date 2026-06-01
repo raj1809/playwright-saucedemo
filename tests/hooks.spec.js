@@ -15,30 +15,17 @@ test.describe('Inventory tests', () => {
       })
 
         test('Assert inventory has 6 products', async ({ page }) => {
-
-            const inventory = await page.locator('[data-test="inventory-item"]')            
+            const inventory = page.locator('[data-test="inventory-item"]')            
             await expect(inventory).toHaveCount(6)
         })
 
-
         test('Add a product to cart, assert badge shows 1', async ({ page }) => {
-
                 await page.getByTestId('add-to-cart-sauce-labs-backpack').click()
-                await expect(page.getByText('1', { exact: true })).toHaveCount(1)
+                await expect(page.getByTestId('shopping-cart-badge')).toHaveText('1')
         })
 
         test('Open the cart, assert URL contains /cart.html', async ({ page }) => {
                 await page.getByTestId('shopping-cart-link').click()
-                await expect(page).toHaveURL(/\/cart\.html/)     
-                       
+                await expect(page).toHaveURL(/\/cart\.html/)         
         })
-
-
-
-
-
-
-
-
-
 })
