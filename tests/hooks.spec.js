@@ -26,6 +26,6 @@ test.describe('Inventory tests', () => {
 
         test('Open the cart, assert URL contains /cart.html', async ({ page }) => {
                 await page.getByTestId('shopping-cart-link').click()
-                await expect(page).toHaveURL(/\/cart\.html/)         
+                await expect(page).toHaveURL(/\/cart\.html/)     
         })
 })
