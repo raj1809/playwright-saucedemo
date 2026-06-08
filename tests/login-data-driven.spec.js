@@ -14,3 +14,20 @@ test(' Log in using users.standardUser (dot notation). Assert URL is /inventory.
         await page.getByTestId('login-button').click()
         await expect(page).toHaveURL(/\/inventory\.html/)
 })
+
+
+test('Log in using users.lockedUser. Assert error message visible', async ({page}) => {
+         await page.goto('https://www.saucedemo.com/')
+        await page.getByPlaceholder('Username').fill(userData.lockedUser.username)
+        await page.getByPlaceholder('Password').fill(userData.lockedUser.password)
+        await page.getByTestId('login-button').click()
+        await  expect(page.getByTestId("error")).toHaveText('Epic sadface: Sorry, this user has been locked out.')
+})
+
+test("Log in using bracket notation: users['problemUser']. Assert URL is /inventory.html", async ({ page }) => {
+        await page.goto('https://www.saucedemo.com/')
+        await page.getByPlaceholder('Username').fill(userData["problemUser"].username)
+        await page.getByPlaceholder('Password').fill(userData["problemUser"].password)
+        await page.getByTestId('login-button').click()
+        await expect(page).toHaveURL(/\/inventory\.html/)
+})
